@@ -332,41 +332,28 @@
                 fclose($file);
 
                 if($dataPegawai) {
-                    echo "<form method='post'>";
+                    echo "<form method='post' class='formbaru'>";
                         echo "<input type='number' name='nik' placeholder='NIK' value='$dataPegawai[0]' required>";
-                        echo "<br><br>";
                         echo "<input type='text' name='nama' placeholder='Nama' value='$dataPegawai[1]' required>";
-                        echo "<br><br>";
                         echo "<textarea name='alamat' cols='30' rows='10' placeholder='Alamat' required>$dataPegawai[2]</textarea>";
-                        echo "<br><br>";
                         echo "<input type='text' name='unit' placeholder='Unit' value='$dataPegawai[3]' required>";
-                        echo "<br><br>";
+                        echo "<input type='number' name='jumlahAnak' placeholder='Jumlah Anak' value='$dataPegawai[5]' required>";
+                        echo "<input type='number' name='masuk' placeholder='Jumlah Hari Masuk (Selain Sabtu dan Minggu)' value='$dataPegawai[6]' required>";
+                        echo "<input type='number' name='jamKerja' placeholder='Jam Kerja' value='$dataPegawai[7]' required>";
                         echo "<label>Golongan</label>";
-                        echo "<br>";
                         echo "<input type='radio' name='golongan' value='IV-A'" . ($dataPegawai[4] == 'IV-A' ? 'checked' : '') . ">";
                         echo "<label for='IV-A'>IV-A</label>";
-                        echo "<br>";
                         echo "<input type='radio' name='golongan' value='IV-B'" . ($dataPegawai[4] == 'IV-B' ? 'checked' : '') . ">";
                         echo "<label for='IV-B'>IV-B</label>";
-                        echo "<br>";
                         echo "<input type='radio' name='golongan' value='IV-C'" . ($dataPegawai[4] == 'IV-C' ? 'checked' : '') . ">";
                         echo "<label for='IV-C'>IV-C</label>";
-                        echo "<br>";
                         echo "<input type='radio' name='golongan' value='III-A'" . ($dataPegawai[4] == 'III-A' ? 'checked' : '') . ">";
                         echo "<label for='III-A'>III-A</label>";
-                        echo "<br>";
                         echo "<input type='radio' name='golongan' value='III-B'" . ($dataPegawai[4] == 'III-B' ? 'checked' : '') . ">";
                         echo "<label for='III-B'>III-B</label>";
-                        echo "<br>";
                         echo "<input type='radio' name='golongan' value='III-C'" . ($dataPegawai[4] == 'III-C' ? 'checked' : '') . ">";
                         echo "<label for='III-C'>III-C</label>";
-                        echo "<br><br>";
-                        echo "<input type='number' name='jumlahAnak' placeholder='Jumlah Anak' value='$dataPegawai[5]' required>";
-                        echo "<br><br>";
-                        echo "<input type='number' name='masuk' placeholder='Jumlah Hari Masuk (Selain Sabtu dan Minggu)' value='$dataPegawai[6]' required>";
-                        echo "<br><br>";
-                        echo "<input type='number' name='jamKerja' placeholder='Jam Kerja' value='$dataPegawai[7]' required>";
-                        echo "<br><br>";
+                        
                         echo "<button type='submit' name='submitUbahDataPegawai'>Ubah Data Pegawai!</button>";
                     echo "</form>";
                 }
@@ -580,24 +567,26 @@
                     fclose($fileHandle);
                 }
                 if($dataPegawai) {
+                    echo "<div>";
                     echo "<h3>Detail Data Pegawai</h3>";
-                    echo "NIK: " . $dataPegawai[0];
+                    echo "<p>NIK: $dataPegawai[0]</p>" ;
                     echo "<br>";
-                    echo "Nama Lengkap: " . $dataPegawai[1];
+                    echo "<p>Nama Lengkap:  $dataPegawai[1]</p>" ;
                     echo "<br>";
-                    echo "Alamat: " . $dataPegawai[2];
+                    echo "<p>Alamat:  $dataPegawai[2]</p>";
                     echo "<br>";
-                    echo "Unit: " . $dataPegawai[3];
+                    echo "<p>Unit: $dataPegawai[3]</p>";
                     echo "<br>";
-                    echo "Golongan: " . $dataPegawai[4];
+                    echo "<p>Golongan: $dataPegawai[4]</p>";
                     echo "<br>";
-                    echo "Jumlah Anak: " . $dataPegawai[5];
+                    echo "<p>Jumlah Anak: $dataPegawai[5]</p>";
                     echo "<br>";
-                    echo "Jumlah Hari Masuk (Selain Sabtu dan Minggu): " . $dataPegawai[6];
+                    echo "<p>Jumlah Hari Masuk (Selain Sabtu dan Minggu): $dataPegawai[6]</p>"  ;
                     echo "<br>";
-                    echo "Jam Kerja: " . $dataPegawai[7];
+                    echo "<p>Jam Kerja: $dataPegawai[7]</p>" ;
                     echo "<br>";
-                    echo "Gaji: Rp " . self::hitungGaji($dataPegawai);
+                    echo "<p>Gaji: Rp " . self::hitungGaji($dataPegawai) . "</p>";
+                    echo "</div>";
                 } else {
                     echo "<script>alert('Pegawai tidak ditemukan!')</script>";
                 }
